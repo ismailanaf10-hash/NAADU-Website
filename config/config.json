@@ -1,0 +1,67 @@
+{
+  "restaurant": {
+    "name": "Naadu Restaurant",
+    "tagline": "Authentic Coastal Karnataka Flavors & Mangalurean Warmth",
+    "phone": "070223 73444",
+    "whatsapp": "+917022373444",
+    "address": "1, 1, S-17, S-17-1143, Kulur Ferry Rd, Chilimbi, BOLOOR, Ladyhill, Mangaluru, Karnataka 575006",
+    "googleMapsUrl": "https://maps.google.com/?q=Naadu+Restaurant+Kulur+Ferry+Rd+Chilimbi+BOLOOR+Ladyhill+Mangaluru+Karnataka+575006",
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.4795267252277!2d74.82510167584149!3d12.876884616947293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a646c000001%3A0x6b7b252033c4ef!2sLadyhill%2C%20Mangaluru%2C%20Karnataka%20575006!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+  },
+  "social": {
+    "instagram": "https://instagram.com/naadurestaurant",
+    "facebook": "https://facebook.com/naadurestaurant"
+  },
+  "features": {
+    "reservationsEnabled": true,
+    "reviewSubmissionEnabled": true,
+    "offersEnabled": true,
+    "eventsEnabled": true,
+    "kidsMenuEnabled": true,
+    "adsEnabled": true
+  },
+  "reservation": {
+    "maxFutureBookingDays": 60,
+    "maxGuestsPerReservation": 20,
+    "timeSlotIntervalMinutes": 30,
+    "confirmationEmailEnabled": false
+  },
+  "ads": {
+    "globalEnabled": true,
+    "testMode": true,
+    "nativeBannerEnabled": true,
+    "nativeBannerZoneId": "test_native_zone",
+    "standardBannerEnabled": true,
+    "standardBannerZoneId": "test_banner_zone",
+    "socialBarEnabled": false,
+    "socialBarZoneId": "",
+    "pageTargeting": {
+      "home": true,
+      "menu": true,
+      "about": true,
+      "gallery": true,
+      "reviews": true,
+      "events": true,
+      "contact": true,
+      "offers": true,
+      "reserve": false,
+      "reserveConfirmation": false,
+      "foodDetail": false,
+      "kidsMenu": false
+    }
+  },
+  "analytics": {
+    "selfHostedEnabled": true
+  },
+  "seo": {
+    "defaultTitle": "Naadu Restaurant — Authentic Mangalurean Dining & Sports Screening",
+    "defaultDescription": "Experience authentic Coastal Karnataka cuisine, vegetarian specials, dedicated kids menu, and live sports screening at Naadu Restaurant, Chilimbi, Mangaluru.",
+    "siteUrl": "https://naadurestaurant.com"
+  },
+  "ui": {
+    "heroImageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80",
+    "logoUrl": "/images/logo.png",
+    "primaryColor": "#D9531E",
+    "showSportsSection": true
+  }
+}

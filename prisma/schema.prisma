@@ -1,0 +1,191 @@
+// Prisma Schema for Naadu Restaurant
+// Supports SQLite for out-of-the-box local development, easily switchable to PostgreSQL
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         String    @default("superadmin") // superadmin, manager
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model MenuCategory {
+  id           String     @id @default(cuid())
+  name         String
+  slug         String     @unique
+  description  String?
+  imageUrl     String?
+  displayOrder Int        @default(0)
+  isEnabled    Boolean    @default(true)
+  items        MenuItem[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model MenuItem {
+  id               String       @id @default(cuid())
+  categoryId       String
+  category         MenuCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  name             String
+  slug             String       @unique
+  shortDescription String
+  fullDescription  String?
+  price            Float
+  imageUrl         String?
+  isVeg            Boolean      @default(false)
+  isAvailable      Boolean      @default(true)
+  isFeatured       Boolean      @default(false)
+  isPopular        Boolean      @default(false)
+  isKidsMenu       Boolean      @default(false)
+  ingredients      String?
+  allergenInfo     String?
+  tags             String?      // Comma-separated or JSON string
+  viewCount        Int          @default(0)
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+
+  @@index([categoryId])
+  @@index([isAvailable])
+  @@index([isFeatured])
+  @@index([isPopular])
+  @@index([isKidsMenu])
+}
+
+model Reservation {
+  id              String   @id @default(cuid())
+  referenceNumber String   @unique // NAADU-YYYYMMDD-NNNN
+  customerName    String
+  customerPhone   String
+  customerEmail   String?
+  reservationDate String   // YYYY-MM-DD
+  reservationTime String   // HH:mm
+  guestCount      Int
+  specialRequests String?
+  occasion        String?  // None, Birthday, Anniversary, Business Lunch, Family Gathering, Other
+  status          String   @default("pending") // pending, confirmed, rejected, cancelled, completed
+  adminNotes      String?
+  rejectionReason String?
+  ipAddress       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([status])
+  @@index([reservationDate])
+  @@index([customerPhone])
+}
+
+model Offer {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  discountText String
+  imageUrl     String?
+  startDate    DateTime
+  endDate      DateTime
+  terms        String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([isActive])
+}
+
+model GalleryImage {
+  id           String   @id @default(cuid())
+  imageUrl     String
+  thumbnailUrl String?
+  caption      String?
+  altText      String?
+  category     String   // food, ambience, events, sports, other
+  isFeatured   Boolean  @default(false)
+  isVisible    Boolean  @default(true)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  @@index([category])
+  @@index([isFeatured])
+  @@index([isVisible])
+}
+
+model Review {
+  id           String    @id @default(cuid())
+  customerName String
+  rating       Int       // 1 to 5
+  reviewText   String
+  email        String?
+  photoUrl     String?
+  status       String    @default("pending") // pending, approved, hidden, deleted
+  isFeatured   Boolean   @default(false)
+  adminNote    String?
+  submittedAt  DateTime  @default(now())
+  moderatedAt  DateTime?
+
+  @@index([status])
+  @@index([isFeatured])
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  eventDate   String   // YYYY-MM-DD
+  eventTime   String   // HH:mm
+  imageUrl    String?
+  ctaLabel    String?
+  ctaUrl      String?
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isPublished])
+}
+
+model RestaurantSettings {
+  id                       String   @id @default(cuid())
+  restaurantName           String
+  tagline                  String?
+  phone                    String
+  whatsappNumber           String
+  address                  String
+  googleMapsEmbedUrl       String?
+  googleMapsDirectionsUrl  String?
+  logoUrl                  String?
+  instagram                String?
+  facebook                 String?
+  openingHours             String   // JSON array of { day, openTime, closeTime, isClosed }
+  aboutText                String
+  heroImageUrl             String?
+  seoTitle                 String?
+  seoDescription           String?
+  highlights               String   // JSON array of { icon, text }
+  reservationMaxGuests     Int      @default(20)
+  reservationMaxFutureDays Int      @default(60)
+  reviewSubmissionEnabled  Boolean  @default(true)
+  adsGlobalEnabled         Boolean  @default(true)
+  adsConfig                String   // JSON full ad configuration
+  updatedAt                DateTime @updatedAt
+}
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  eventType String   // page_view, menu_view, reservation_submit, etc.
+  metadata  String?  // JSON string
+  sessionId String?
+  createdAt DateTime @default(now())
+
+  @@index([eventType])
+  @@index([createdAt])
+}
