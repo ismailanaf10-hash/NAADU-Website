@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import HomeGalleryClient from './HomeGalleryClient';
 
-export const revalidate = 60; // Revalidate every minute
+export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
   const [

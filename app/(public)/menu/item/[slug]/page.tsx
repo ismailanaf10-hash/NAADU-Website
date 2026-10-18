@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/Button';
 import { MenuItemCard } from '@/components/public/MenuItemCard';
 import { Calendar, ChevronRight, AlertCircle, Sparkles, CheckCircle2 } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const item = await db.menuItem.findUnique({
     where: { slug: params.slug },

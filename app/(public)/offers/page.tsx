@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { AdSlot } from '@/components/public/AdSlot';
 import { Sparkles, Calendar, Tag, ArrowRight } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Offers & Promotions — Naadu Restaurant, Mangaluru',
   description: 'Discover the latest deals, weekend combo discounts, and match-screening specials at Naadu Restaurant in Mangaluru.',

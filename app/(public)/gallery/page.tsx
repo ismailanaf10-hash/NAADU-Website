@@ -3,6 +3,7 @@ import { db } from '@/lib/db';
 import GalleryClient from './GalleryClient';
 import { AdSlot } from '@/components/public/AdSlot';
 
+export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Photo Gallery — Naadu Restaurant, Mangaluru',
   description: 'Explore photos of our delicious dishes, dining ambience, sports screening nights, and special moments at Naadu Restaurant in Mangaluru.',

@@ -4,6 +4,7 @@ import { db } from '@/lib/db';
 import { Button } from '@/components/ui/Button';
 import { CheckCircle2, Clock, Phone, MessageSquare, ArrowLeft, Calendar, Users, MapPin } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Reservation Received — Naadu Restaurant',
   description: 'Your table reservation request has been received by Naadu Restaurant Mangaluru.',

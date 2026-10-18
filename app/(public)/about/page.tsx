@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { AdSlot } from '@/components/public/AdSlot';
 import { Utensils, HeartHandshake, Sparkles, MapPin, Tv, Baby, Leaf, Calendar } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'About Us — Naadu Restaurant, Mangaluru',
   description: 'Learn about Naadu Restaurant in Chilimbi, Mangaluru. Our coastal culinary heritage, slow-roasted Ghee Roasts, warm hospitality, and live sports match screenings.',

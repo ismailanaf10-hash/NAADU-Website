@@ -22,6 +22,7 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Contact Us — Naadu Restaurant, Mangaluru',
   description: 'Visit Naadu Restaurant at Kulur Ferry Rd, Chilimbi, Mangaluru. Call 070223 73444 or WhatsApp us. Get directions, view opening hours, and plan your visit.',

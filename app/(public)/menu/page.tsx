@@ -3,6 +3,7 @@ import { db } from '@/lib/db';
 import MenuClient from './MenuClient';
 import { AdSlot } from '@/components/public/AdSlot';
 
+export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Our Menu — Naadu Restaurant, Mangaluru',
   description: 'Explore the full menu at Naadu Restaurant. Authentic Mangalore Ghee Roasts, fresh coastal seafood, vegetarian delights, delicate Neer Dosa, and kids menu.',

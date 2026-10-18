@@ -6,6 +6,7 @@ import { MenuItemCard } from '@/components/public/MenuItemCard';
 import { AdSlot } from '@/components/public/AdSlot';
 import { Baby, Smile, Star, IceCreamCone, CalendarDays } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Kids Menu — Naadu Restaurant, Mangaluru',
   description: 'Fun and family-friendly kids menu at Naadu Restaurant. Gentle flavors, crispy favorites, and tasty options specially crafted for little ones.',

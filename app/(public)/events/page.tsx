@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { AdSlot } from '@/components/public/AdSlot';
 import { Tv, CalendarDays, Clock, MapPin, PartyPopper } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Events & Live Sports Screening — Naadu Restaurant, Mangaluru',
   description: 'Catch live cricket, football & sports match screenings on our big screen. Check upcoming events and special nights at Naadu Restaurant, Mangaluru.',

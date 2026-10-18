@@ -4,6 +4,8 @@ import { db } from '@/lib/db';
 import MenuClient from '../MenuClient';
 import { AdSlot } from '@/components/public/AdSlot';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }: { params: { category: string } }) {
   const cat = await db.menuCategory.findUnique({
     where: { slug: params.category },
